@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .container {
+    @apply px-2;
+  }
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #000;
+}
+
+.myScroll::-webkit-scrollbar {
+  width: 10px;
+}
+.myScroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 20%);
+}
+.myScroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 40%);
+}
+.card:hover .card-play {
+  display: flex;
+  animation: play 0.5s ease forwards;
+}
+@keyframes play {
+  from {
+    opacity: 0;
+    transform: scale(95%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.nav-search:hover .nav-glass-icon{
+  color: white !important;
+}
+
+.player {
+  --slider-width: 100%;
+  --slider-height: 4px;
+  --slider-bg: #b3b3b3;
+  --slider-border-radius: 999px;
+  --level-color: #1DD560;
+  --level-transition-duration: .1s;
+  --icon-margin: 15px;
+  --icon-color: var(--slider-bg);
+  --icon-size: 25px;
+}
+
+.player {
+  cursor: pointer;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.player .volume {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: var(--icon-margin);
+  color: var(--icon-color);
+  width: var(--icon-size);
+  height: auto;
+}
+
+.player .level {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: var(--slider-width);
+  height: var(--slider-height);
+  background: var(--slider-bg);
+  /* overflow: hidden; */
+  border-radius: var(--slider-border-radius);
+  -webkit-transition: height var(--level-transition-duration);
+  -o-transition: height var(--level-transition-duration);
+  transition: height var(--level-transition-duration);
+  cursor: inherit;
+}
+
+.player .level::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  background: #1DD560;
+  height: 10px;
+}
